@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.screens.OnBoardingScreenActivity">
+    
+    <ImageView
+        android:id="@+id/icon_logo"
+        android:layout_width="34dp"
+        android:layout_height="23dp"
+        android:src="@drawable/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"/>
+
+    <TextView
+        android:id="@+id/btn_skip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginRight="24dp"
+        android:background="#fef7ff"
+        android:fontFamily="@font/semibold"
+        android:text="Skip"
+        android:textColor="#FA5A1E" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewpager2"
+        android:layout_width="338dp"
+        android:layout_height="370dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/icon_logo"
+        android:layout_marginTop="80dp"/>
+    <me.relex.circleindicator.CircleIndicator3
+        android:id="@+id/circle_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="10dp"
+        android:layout_below="@id/viewpager2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        app:ci_drawable="@drawable/bg_indicator"/>
+    
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_create"
+        android:layout_width="335dp"
+        android:layout_height="51dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/circle_indicator"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/button_bg"
+        android:backgroundTint="#F9881F"
+        android:text="Create an account"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:fontFamily="@font/semibold"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_login"
+        android:layout_width="335dp"
+        android:layout_height="51dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btn_create"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_bg"
+        android:backgroundTint="#fff"
+        android:text="Login"
+        android:textAllCaps="false"
+        android:textColor="#FE554A"
+        android:fontFamily="@font/semibold"/>
+</RelativeLayout>

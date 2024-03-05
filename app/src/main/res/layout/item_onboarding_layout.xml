@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="279dp"
+        android:layout_height="62dp"
+        android:text="Order from your favourite\nstores or vendors"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/bold"
+        android:textSize="20dp"/>
+
+    <ImageView
+        android:id="@+id/iv_image"
+        android:layout_width="338dp"
+        android:layout_height="260dp"
+        android:src="@drawable/img1"
+        android:layout_below="@id/tv_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"/>
+
+</RelativeLayout>
