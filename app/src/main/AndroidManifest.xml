@@ -13,6 +13,9 @@
         android:theme="@style/Theme.FoodMaina"
         tools:targetApi="31">
         <activity
+            android:name=".ui.screens.LoginScreenActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.screens.RegisterScreenActivity"
             android:exported="false" />
         <activity

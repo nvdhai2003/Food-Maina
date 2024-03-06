@@ -1,5 +1,9 @@
 package nvdhai2003.mobileapp.foodmaina.ui.screens;
 
+import static nvdhai2003.mobileapp.foodmaina.ui.screens.SplashScreenActivity.SCREEN_STATE_LOGIN;
+import static nvdhai2003.mobileapp.foodmaina.ui.screens.SplashScreenActivity.SCREEN_STATE_MAIN;
+import static nvdhai2003.mobileapp.foodmaina.ui.screens.SplashScreenActivity.SCREEN_STATE_REGISTER;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -25,5 +29,25 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        try {
+            SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+            int screenState = prefs.getInt("ScreenState", 0);
+
+            switch (screenState) {
+                case SCREEN_STATE_MAIN:
+                    // Do nothing
+                    break;
+                case SCREEN_STATE_LOGIN:
+                    startActivity(new Intent(this, LoginScreenActivity.class));
+                    finish();
+                    break;
+                case SCREEN_STATE_REGISTER:
+                    startActivity(new Intent(this, RegisterScreenActivity.class));
+                    finish();
+                    break;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

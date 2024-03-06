@@ -15,6 +15,9 @@ import nvdhai2003.mobileapp.foodmaina.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
     private Handler handler = new Handler();
+    public static final int SCREEN_STATE_MAIN = 1;
+    public static final int SCREEN_STATE_LOGIN = 2;
+    public static final int SCREEN_STATE_REGISTER = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,18 +33,25 @@ public class SplashScreenActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                checkSkipStatusAndTransition();
+                try {
+                    SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                    int screenState = prefs.getInt("ScreenState", 0);
+                    switch (screenState) {
+                        case SCREEN_STATE_LOGIN:
+                            startActivity(new Intent(SplashScreenActivity.this, LoginScreenActivity.class));
+                            break;
+                        case SCREEN_STATE_REGISTER:
+                            startActivity(new Intent(SplashScreenActivity.this, RegisterScreenActivity.class));
+                            break;
+                        default:
+                            startActivity(new Intent(SplashScreenActivity.this, OnBoardingScreenActivity.class));
+                            break;
+                    }
+                    finish();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }, 2000);
-    }
-
-    private void checkSkipStatusAndTransition() {
-        SharedPreferences preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-        boolean skipOnboarding = preferences.getBoolean("skipOnboarding", false);
-        Class<?> nextActivity = skipOnboarding ? MainActivity.class : OnBoardingScreenActivity.class;
-
-        Intent intent = new Intent(SplashScreenActivity.this, nextActivity);
-        startActivity(intent);
-        finish();
     }
 }

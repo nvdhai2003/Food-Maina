@@ -1,5 +1,9 @@
 package nvdhai2003.mobileapp.foodmaina.ui.screens;
 
+import static nvdhai2003.mobileapp.foodmaina.ui.screens.SplashScreenActivity.SCREEN_STATE_LOGIN;
+import static nvdhai2003.mobileapp.foodmaina.ui.screens.SplashScreenActivity.SCREEN_STATE_MAIN;
+import static nvdhai2003.mobileapp.foodmaina.ui.screens.SplashScreenActivity.SCREEN_STATE_REGISTER;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -30,9 +34,8 @@ public class OnBoardingScreenActivity extends AppCompatActivity {
     private CircleIndicator3 circleIndicator3;
     private OnBoardingAdapter adapter;
     private List<Items> mItems;
-    private SharedPreferences sharedPreferences;
     private TextView btnSkip;
-   private AppCompatButton btnCreate, btnLogin;
+    private AppCompatButton btnCreate, btnLogin;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -56,30 +59,46 @@ public class OnBoardingScreenActivity extends AppCompatActivity {
         btnCreate = findViewById(R.id.btn_create);
         btnLogin = findViewById(R.id.btn_login);
 
-        btnSkip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setSkipOnboardingStatus(true);
-                // Switch to MainActivity
-                Intent intent = new Intent(OnBoardingScreenActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
-        btnCreate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(OnBoardingScreenActivity.this, RegisterScreenActivity.class));
+        btnSkip.setOnClickListener(v -> {
+            try {
+                SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("ScreenState", SCREEN_STATE_MAIN);
+                editor.apply();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        });
-    }
 
-    private void setSkipOnboardingStatus(boolean skip) {
-        SharedPreferences preferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putBoolean("skipOnboarding", skip);
-        editor.apply();
+            startActivity(new Intent(this, MainActivity.class));
+            finish();
+        });
+        btnLogin.setOnClickListener(v -> {
+            try {
+                SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("ScreenState", SCREEN_STATE_LOGIN);
+                editor.apply();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            startActivity(new Intent(this, LoginScreenActivity.class));
+            finish();
+        });
+        btnCreate.setOnClickListener(v -> {
+            try {
+                SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("ScreenState", SCREEN_STATE_REGISTER);
+                editor.apply();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            startActivity(new Intent(this, RegisterScreenActivity.class));
+            finish();
+        });
     }
 
     private List<Items> getListItems() {
