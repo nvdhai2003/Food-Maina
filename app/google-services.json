@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "770029488375",
+    "project_id": "food-maina-46c64",
+    "storage_bucket": "food-maina-46c64.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:770029488375:android:964e80cfc43d1a86c5ebf2",
+        "android_client_info": {
+          "package_name": "nvdhai2003.mobileapp.foodmaina"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "770029488375-0gp2a5usa22j7bfpl6n9pd48selt5eni.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "nvdhai2003.mobileapp.foodmaina",
+            "certificate_hash": "0fd717e5526ad4b163a6c6acf4a3bed1db73e042"
+          }
+        },
+        {
+          "client_id": "770029488375-n1ibtv8q8r3gdgeutpqmerugdtdjqolq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJpR62JODX606i9PfGvD3X4bsHaGvpSPo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "770029488375-n1ibtv8q8r3gdgeutpqmerugdtdjqolq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

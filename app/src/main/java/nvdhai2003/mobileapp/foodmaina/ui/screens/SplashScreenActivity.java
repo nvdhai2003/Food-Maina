@@ -37,6 +37,9 @@ public class SplashScreenActivity extends AppCompatActivity {
                     SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
                     int screenState = prefs.getInt("ScreenState", 0);
                     switch (screenState) {
+                        case SCREEN_STATE_MAIN:
+                            startActivity(new Intent(SplashScreenActivity.this, MainActivity.class));
+                            break;
                         case SCREEN_STATE_LOGIN:
                             startActivity(new Intent(SplashScreenActivity.this, LoginScreenActivity.class));
                             break;

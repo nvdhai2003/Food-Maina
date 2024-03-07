@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
 
             switch (screenState) {
                 case SCREEN_STATE_MAIN:
-                    // Do nothing
                     break;
                 case SCREEN_STATE_LOGIN:
                     startActivity(new Intent(this, LoginScreenActivity.class));

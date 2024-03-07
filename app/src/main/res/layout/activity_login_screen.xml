@@ -69,6 +69,7 @@
             android:textSize="16sp" />
 
         <EditText
+            android:id="@+id/edt_email_log"
             android:layout_width="370dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
@@ -90,6 +91,7 @@
             android:textSize="16sp" />
 
         <EditText
+            android:id="@+id/edt_pass_log"
             android:layout_width="370dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
@@ -103,7 +105,7 @@
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraint"
+        android:id="@+id/constraint_google"
         android:layout_width="370dp"
         android:layout_height="50dp"
         android:layout_below="@id/linear1"
@@ -140,7 +142,7 @@
         android:id="@+id/btn_login_account"
         android:layout_width="370dp"
         android:layout_height="51dp"
-        android:layout_below="@id/constraint"
+        android:layout_below="@id/constraint_google"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="@drawable/button_bg"
